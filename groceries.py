@@ -1,7 +1,6 @@
 import code
 import operator
 
-
 products = [
     {"id":1, "name": "Chocolate Sandwich Cookies", "department": "snacks", "aisle": "cookies cakes", "price": 3.50},
     {"id":2, "name": "All-Seasons Salt", "department": "pantry", "aisle": "spices seasonings", "price": 4.99},
@@ -25,15 +24,29 @@ products = [
     {"id":20, "name": "Pomegranate Cranberry & Aloe Vera Enrich Drink", "department": "beverages", "aisle": "juice nectars", "price": 4.25}
 ] # Products based on data from Instacart: https://www.instacart.com/datasets/grocery-shopping-2017
 
-#print(products)
+#
+# PRODUCTS
+#
+
 print("___________")
 print("THERE ARE " + str(len(products)) + " PRODUCTS")
 
 products = sorted(products, key=operator.itemgetter("name"))
 
+#for product in products:
+#    price_usd = ' ${0:.2f}'.format(product["price"]) #formatting to dollars
+#    print(" + " + product["name"] + price_usd)
+
+#
+# DEPARTMENTS
+#
+
+departments = []
+
 for product in products:
-    price_usd = ' ${0:.2f}'.format(product["price"]) #formatting to dollars
-    print(" + " + product["name"] + price_usd)
+        departments.append(product["department"])
 
+departments = set(departments)
+departments = list(departments)
 
-# code.interact(local=locals())
+print(departments)
